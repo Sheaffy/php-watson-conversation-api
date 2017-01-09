@@ -14,7 +14,7 @@ include 'watson-api/watson.php';
  <?php
 
  $watson = new watson_api();
- $watson->set_credentials("29417e54-78c7-41a3-a15a-4bd415abad5e", "ilaLlwikzB2v");
+ $watson->set_credentials("YOURUSERNAME", "YOURPASSWORD");
 
 
  // define variables and set to empty values
