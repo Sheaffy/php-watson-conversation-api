@@ -18,7 +18,11 @@ include 'watson-api/watson.php';
 
 
  $watson = new watson_api();
+<<<<<<< HEAD
  $watson->set_credentials(YOUR_USERNAME, YOUR_PASSWORD);
+=======
+ $watson->set_credentials("YOURUSERNAME", "YOURPASSWORD");
+>>>>>>> origin/master
 
 
  // define variables and set to empty values
