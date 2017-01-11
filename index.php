@@ -18,11 +18,7 @@ include 'watson-api/watson.php';
 
 
  $watson = new watson_api();
-<<<<<<< HEAD
  $watson->set_credentials(YOUR_USERNAME, YOUR_PASSWORD);
-=======
- $watson->set_credentials("YOURUSERNAME", "YOURPASSWORD");
->>>>>>> origin/master
 
 
  // define variables and set to empty values
@@ -36,8 +32,8 @@ include 'watson-api/watson.php';
     } else {
       $textLID = test_input($_POST["textLID"]);
 
-      $data_arr = $watson->send_watson_conv_request($textLID, "32fi2d-23-g4fweg53-d-ew-d32323-d3");
-	  $watson->set_context(json_encode($data_arr['context']));
+      $data_arr = $watson->send_watson_conv_request($textLID, YOUR_WORKSPACE_ID);
+	    $watson->set_context(json_encode($data_arr['context']));
       
       //OUTPUT DIALOG RESPONSE
       echo $data_arr['output']['text'][0];
