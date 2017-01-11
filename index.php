@@ -1,5 +1,7 @@
 <?php
+session_start();
 include 'watson-api/watson.php';
+
 ?>
 
  <!DOCTYPE html>
@@ -13,14 +15,16 @@ include 'watson-api/watson.php';
  
  <?php
 
+
+
  $watson = new watson_api();
- $watson->set_credentials("29417e54-78c7-41a3-a15a-4bd415abad5e", "ilaLlwikzB2v");
+ $watson->set_credentials(YOUR_USERNAME, YOUR_PASSWORD);
 
 
  // define variables and set to empty values
  $textLID = "";
  $textLIDErr = "";
- $textLang = "";
+ $data_arr = "";
  
  if ($_SERVER["REQUEST_METHOD"] == "POST") {  
     if (empty($_POST["textLID"])) {
@@ -28,9 +32,16 @@ include 'watson-api/watson.php';
     } else {
       $textLID = test_input($_POST["textLID"]);
 
-      $textLang = $watson->send_watson_conv_request($textLID, "4cf813b0-d9a8-4dfa-81f9-1e348395a5a3");
-	  
-	  echo $textLang['output']['text'][0];
+      $data_arr = $watson->send_watson_conv_request($textLID, "32fi2d-23-g4fweg53-d-ew-d32323-d3");
+	  $watson->set_context(json_encode($data_arr['context']));
+      
+      //OUTPUT DIALOG RESPONSE
+      echo $data_arr['output']['text'][0];
+      echo "<br><br>";
+      //OUTUPUT WHOLE DATASET
+      echo json_encode($data_arr);
+
+
 
 
     }
